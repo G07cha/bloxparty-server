@@ -1,0 +1,24 @@
+{
+  "name": "netris-server",
+  "version": "1.0.0",
+  "description": "Netris game server",
+  "main": "index.js",
+  "scripts": {
+    "test": "make test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/staygrimm/netris.git"
+  },
+  "keywords": [
+    "netris",
+    "tetris",
+    "server"
+  ],
+  "author": "River Grimm <river.grimm@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/staygrimm/netris/issues"
+  },
+  "homepage": "https://github.com/staygrimm/netris#readme"
+}
