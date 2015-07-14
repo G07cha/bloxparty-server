@@ -20,5 +20,10 @@
   "bugs": {
     "url": "https://github.com/staygrimm/netris/issues"
   },
-  "homepage": "https://github.com/staygrimm/netris#readme"
+  "homepage": "https://github.com/staygrimm/netris#readme",
+  "dependencies": {
+    "component-clone": "^0.2.2",
+    "cuid": "^1.2.5",
+    "random-name": "^0.1.0"
+  }
 }
