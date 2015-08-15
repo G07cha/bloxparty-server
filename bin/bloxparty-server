@@ -1,0 +1,13 @@
+#!/usr/bin/env node
+
+var program = require('commander')
+var Server = require('../lib/server')
+var pkg = require('../package.json')
+
+program
+  .version(pkg.version)
+  .option('-p, --port', 'Port to listen on')
+  .parse(process.argv)
+
+var server = Server(program)
+server.listen()

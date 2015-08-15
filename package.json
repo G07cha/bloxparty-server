@@ -1,37 +1,39 @@
 {
-  "name": "netris-server",
+  "name": "bloxparty-server",
   "version": "1.0.0",
   "description": "Netris game server",
   "main": "index.js",
   "scripts": {
-    "test": "tape test/**/*.js | tap-spec"
+    "test": "mocha test/index.js",
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/staygrimm/netris.git"
+    "url": "git+https://github.com/staygrimm/bloxparty.git"
   },
   "keywords": [
-    "netris",
+    "bloxparty",
     "tetris",
     "server"
   ],
   "author": "River Grimm <river.grimm@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/staygrimm/netris/issues"
+    "url": "https://github.com/staygrimm/bloxparty/issues"
   },
-  "homepage": "https://github.com/staygrimm/netris#readme",
+  "homepage": "https://github.com/staygrimm/bloxparty#readme",
   "dependencies": {
     "array": "^0.4.3",
+    "bloxparty-board": "git+https://github.com/staygrimm/bloxparty-board.git#master",
+    "commander": "^2.8.1",
     "component-clone": "^0.2.2",
     "component-emitter": "^1.2.0",
     "cuid": "^1.2.5",
-    "netris-board": "git+https://github.com/staygrimm/netris-board.git",
     "random-name": "^0.1.0",
     "socket.io": "^1.3.5"
   },
   "devDependencies": {
     "mocha": "^2.2.5",
-    "socket.io-client": "^1.3.5",
+    "socket.io-client": "^1.3.5"
   }
 }
