@@ -1,7 +1,7 @@
 {
   "name": "bloxparty-server",
   "description": "Blox Party game server",
-  "version": "1.0.2-alpha",
+  "version": "1.0.3-alpha",
   "author": "Kevin Neff <kvnneff@gmail.com>",
   "bin": "./bin/bloxparty-server",
   "bugs": {
