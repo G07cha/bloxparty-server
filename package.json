@@ -3,6 +3,7 @@
   "description": "Blox Party game server",
   "version": "1.0.0-alpha",
   "author": "Kevin Neff <kvnneff@gmail.com>",
+  "bin": "./bin/bloxparty-server",
   "bugs": {
     "url": "https://github.com/kvnneff/bloxparty/issues"
   },
