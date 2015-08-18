@@ -1,6 +1,6 @@
 # bloxparty-server
 
-[![travis ci](https://travis-ci.org/staygrimm/bloxparty-server.svg)](https://travis-ci.org/staygrimm/bloxparty-server)
+[![travis ci](https://travis-ci.org/kvnneff/bloxparty-server.svg)](https://travis-ci.org/kvnneff/bloxparty-server)
 
 A server to host Blox Party games.
 
