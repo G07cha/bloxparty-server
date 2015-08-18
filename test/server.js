@@ -1,4 +1,4 @@
-/*global describe, it*/
+/*global describe, it, beforeEach, afterEach*/
 var io = require('socket.io-client')
 var assert = require('assert')
 var Server = require('../lib/server')
@@ -13,7 +13,7 @@ describe('App', function () {
       'forceNew': true,
       query: 'nick=foo'
     })
-    socket.on('connect',function () {
+    socket.on('connect', function () {
       done()
     })
   })
@@ -28,7 +28,7 @@ describe('App', function () {
 
   describe('App()', function () {
     it('creates a new player on connect', function () {
-      assert(server.players.length === 1)
+      assert(server.Players.length === 1)
     })
   })
   describe('App#listen', function () {

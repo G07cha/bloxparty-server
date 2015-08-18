@@ -1,7 +1,6 @@
 /*global describe, it*/
 var Emitter = require('component-emitter')
 var assert = require('assert')
-var array = require('array')
 var Player = require('../lib/player')
 var Games = require('../lib/games')
 var socket = {}
