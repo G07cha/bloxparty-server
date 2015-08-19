@@ -1,8 +1,10 @@
+<a name="1.0.4-alpha"></a>
+## 1.0.4-alpha (2015-08-19)
+
+- include player nick in game json
+
 <a name="1.0.3-alpha"></a>
 ## 1.0.3-alpha (2015-08-18)
-
-
-
 
 <a name="1.0.1-alpha"></a>
 ## 1.0.1-alpha (2015-08-18)
