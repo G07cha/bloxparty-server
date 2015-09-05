@@ -6,9 +6,9 @@ node_js:
 before_script:
   - chmod +x ./pack.sh
   - ./pack.sh "bloxparty-server.zip"
+deploy:
 - provider: codedeploy
   access_key_id: AKIAJXJDYZHG65CRKAXQ
-  secure: "gKcR0wu+HqAzN/+WFeOBW2lYgxwXrD3QWaasa3aczZiYe1Yb74U6PCSnq2OWhKSp47zk7sMeLztZFshU7qloc8jwZ7p4fCyP9iIWGTAwwAhfWFtqS/6ARJFkfim6PJHE1wu8HvFJ3SSXmSujcV9lNpvipdde36dN8/eKYvUSg85H1kf7IJCjVMeUYXx0qmU9WpNpql8jXVHqQ+kq8YP11N78u3eRjCXXqine6m9pddNtjN0kdvT8u4geeSMAdHsJXil/3zh0Eg6Q6Qzg+0NvrNP/4c1jl+falJYmqZPbSgKij9TuYVHgm5hwLAtMCVv/eldEXPcUk8CxPKI/rpxk4l5lA6cTbxs3nsg04RD/AjjaPsUkNq2hP6u/jgldTR5AWj0unYQB+q5N+umMBa+0GPXiwvNF7SEMNJ07wDzTYsPEyLJu9q9b5O1H1YPmj+stfWVPrYIa3Q6+7dw1R/jd7kkApd3lryxFy530EEN7PIyKl/ldsOfNOTRAOn8dTuZr4pHV9wSC9qzk454xJd4q7tkuoqtz+ec+pEc6bOC6ofbI/ADh/LnqrkLjHCfyiCv2gBejzFqpW15ZucF58Zr77wgofuYp4JVCVPWudNL/7Ozy+RKKfw0VsVxaq0QK9RYfsaE0btzTCXXc4DO432n8cwLcpLBYhezqT9EgCLx7cbE="
   local_dir: dpl_cd_upload
   bucket: bloxparty
   key: latest/bloxparty-server.zip
@@ -20,3 +20,6 @@ before_script:
 before_deploy:
 - mkdir -p dpl_cd_upload
 - mv build/bloxparty-server.zip dpl_cd_upload/bloxparty-server.zip
+env:
+  global:
+  - secure: "gKcR0wu+HqAzN/+WFeOBW2lYgxwXrD3QWaasa3aczZiYe1Yb74U6PCSnq2OWhKSp47zk7sMeLztZFshU7qloc8jwZ7p4fCyP9iIWGTAwwAhfWFtqS/6ARJFkfim6PJHE1wu8HvFJ3SSXmSujcV9lNpvipdde36dN8/eKYvUSg85H1kf7IJCjVMeUYXx0qmU9WpNpql8jXVHqQ+kq8YP11N78u3eRjCXXqine6m9pddNtjN0kdvT8u4geeSMAdHsJXil/3zh0Eg6Q6Qzg+0NvrNP/4c1jl+falJYmqZPbSgKij9TuYVHgm5hwLAtMCVv/eldEXPcUk8CxPKI/rpxk4l5lA6cTbxs3nsg04RD/AjjaPsUkNq2hP6u/jgldTR5AWj0unYQB+q5N+umMBa+0GPXiwvNF7SEMNJ07wDzTYsPEyLJu9q9b5O1H1YPmj+stfWVPrYIa3Q6+7dw1R/jd7kkApd3lryxFy530EEN7PIyKl/ldsOfNOTRAOn8dTuZr4pHV9wSC9qzk454xJd4q7tkuoqtz+ec+pEc6bOC6ofbI/ADh/LnqrkLjHCfyiCv2gBejzFqpW15ZucF58Zr77wgofuYp4JVCVPWudNL/7Ozy+RKKfw0VsVxaq0QK9RYfsaE0btzTCXXc4DO432n8cwLcpLBYhezqT9EgCLx7cbE="
