@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "array": "^0.4.3",
-    "bloxparty-board": "git+https://github.com/kvnneff/bloxparty-board.git#master",
+    "bloxparty-board": "git+https://github.com/kvnneff/bloxparty-board.git#1.0.5",
     "commander": "^2.8.1",
     "component-clone": "^0.2.2",
     "component-emitter": "^1.2.0",
