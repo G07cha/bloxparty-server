@@ -7,7 +7,7 @@ after_success:
 - eval "$(ssh-agent -s)"
 - chmod 600 .travis/deploy_key.pem
 - ssh-add .travis/deploy_key.pem
-- echo -e "Host 104.131.168.144.com\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
+- echo -e "Host 104.131.168.144\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
 - git remote add dokku dokku@104.131.168.144:bloxparty
 - git push dokku
 before_install:
