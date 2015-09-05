@@ -3,3 +3,26 @@ node_js:
 - iojs
 - 0.12
 - 0.11
+deploy:
+- provider: s3
+  access_key_id: AKIAJXJDYZHG65CRKAXQ
+  secret_access_key: &1
+    secure: 5KQ9eDGrckZ3t+qwEYDwF5+4c6v1RP3o3Pcem+dutHmvaTfB4KULNrFNrBHEHXt72zMIVY1z1MtrGik562S13+qtg/9D/bMZJF+GIB+hVjW8B0rZZyfBs5oy/DID7MNJ9NFY/KbsrZviLVg7/6iYPvNJLneS3LGSvI/Wc7Kbzr/9bJ87pcbO9Apz8e+G5yEKHkVnRPRPIMFIryEVbQ//YoOTTuOSm5i+b86pz7/HD78UjimXmL65KmBk/hd/8RB1PXoSssW2zZ0mpb3DLvl7bZer5ilUOrZVNdcnRt79xcqKvDvchcq+WyLRsiTmV124Do1XdqIflULA4ED5j4pGXwDrX70gFAqN5GBXbvHaTEZLDRUk4B/YcIlduJ4iazKDlmz89IU/L6pYuMoIcIdW6czdnZttpRod1JWhLkLfOqRdk9q0pt8R0HBL48yXGjbxFmIeopLVGY6kQ6/BUiI85vjTZl8Lr7we5hu5sM00XzC/Oj1tAt62Fa4S351U90DPwkb6Qbafa/vPBaTSbY76TMj0/WhXwLwjPMQlbPAb9P30Pur2QmQDRm26EAXRZEmMsL5RgVUrANUf6eYwRfp8SzzOshHQOatw3zFi2W/JzCdT+s0jI7/s67y6bU+XoxjQYnAFzkKBKrFZrYAvyiIrb+ZZ/WQpxX9pKU5BDbJLvUk=
+  local_dir: dpl_cd_upload
+  skip_cleanup: true
+  on: &2
+    repo: kvnneff/bloxparty-server
+  bucket: bloxparty
+  upload_dir: latest
+- provider: codedeploy
+  access_key_id: AKIAJXJDYZHG65CRKAXQ
+  secret_access_key: *1
+  bucket: bloxparty
+  key: latest/bloxparty-server.zip
+  bundle_type: zip
+  application: bloxparty-server
+  deployment_group: Developer
+  on: *2
+before_deploy:
+- mkdir -p dpl_cd_upload
+- mv bloxparty-server.zip dpl_cd_upload/bloxparty-server.zip
