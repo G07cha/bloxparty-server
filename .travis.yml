@@ -3,6 +3,8 @@ node_js:
 - iojs
 - 0.12
 - 0.11
+before_script:
+  - ./pack.sh "bloxparty-server.zip"
 deploy:
 - provider: s3
   access_key_id: AKIAJXJDYZHG65CRKAXQ
