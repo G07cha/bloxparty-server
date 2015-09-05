@@ -4,6 +4,7 @@ node_js:
 - 0.12
 - 0.11
 before_script:
+  - chmod +x ./pack.sh
   - ./pack.sh "bloxparty-server.zip"
 deploy:
 - provider: s3
