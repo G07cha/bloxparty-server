@@ -147,6 +147,8 @@ describe('Player', function () {
     it('clears the player board timeout', function (done) {
       var player = Player(attrs())
       player.createGame()
+      player.game.getQueue()
+      player.game.pre()
       player.start()
       assert(player.board.timeout !== null)
       player.on('board:stop', function () {
@@ -195,6 +197,8 @@ describe('Player', function () {
     it('emits start event', function (done) {
       var player = Player(attrs())
       player.createGame()
+      player.game.getQueue()
+      player.game.pre()
       assert(player.interval !== null)
       player.on('start', function () {
         assert(true)
@@ -209,6 +213,8 @@ describe('Player', function () {
         done()
       })
       player.createGame()
+      player.game.getQueue()
+      player.game.pre()
       player.start()
     })
   })

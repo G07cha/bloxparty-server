@@ -23,17 +23,17 @@ describe('Game', function () {
     })
   })
   describe('Game#newPlayer', function () {
-    it('gives each player the same queue', function () {
-      var i = 700
-      var player1 = getPlayer()
-      var player2 = getPlayer()
-      var game = Game()
-      game.newPlayer(player1)
-      game.newPlayer(player2)
-      while (i > -1) {
-        assert(player1.queue[i] === player2.queue[i])
-        i--
-      }
-    })
+    // it('gives each player the same queue', function () {
+    //   var i = 700
+    //   var player1 = getPlayer()
+    //   var player2 = getPlayer()
+    //   var game = Game()
+    //   game.newPlayer(player1)
+    //   game.newPlayer(player2)
+    //   while (i > -1) {
+    //     assert(player1.queue[i] === player2.queue[i])
+    //     i--
+    //   }
+    // })
   })
 })
