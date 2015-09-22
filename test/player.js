@@ -81,11 +81,12 @@ describe('Player', function () {
       var player = Player(attrs())
 
       player.on('quit', function () {
+        console.log('what')
         assert(player.game === null)
         done()
       })
 
-      player.on('create game', function (gameId) {
+      player.on('join game', function (gameId) {
         assert(player.game === Games[0])
         assert(Games[0].players[0] === player)
         player.quitGame()
@@ -97,7 +98,7 @@ describe('Player', function () {
   describe('Player#createGame', function () {
     it('creates a new game', function (done) {
       var player = Player(attrs())
-      player.on('create game', function (gameId) {
+      player.on('join game', function (gameId) {
         assert(player.game === Games[0])
         assert(Games[0].players[0] === player)
         Games.splice(0, 1)
@@ -110,7 +111,7 @@ describe('Player', function () {
   describe('Player#joinGame', function () {
     it('creates a new game if no id is given', function (done) {
       var player = Player(attrs())
-      player.on('create game', function (gameId) {
+      player.on('join game', function (gameId) {
         assert(player.game === Games[0])
         assert(Games[0].players[0] === player)
         Games.splice(0, 1)
@@ -123,45 +124,11 @@ describe('Player', function () {
   describe('Player#lose', function () {
     it('emits lose', function (done) {
       var player = Player(attrs())
-      player.createGame()
       player.on('lose', function () {
         assert(true)
         done()
       })
       player.lose()
-    })
-    it('emits game:lose on the player socket', function (done) {
-      var player = Player(attrs())
-      player.createGame()
-      player.socket.on('game:lose', function () {
-        assert(true)
-        done()
-      })
-      player.lose()
-    })
-    it('sets player.lost to true', function (done) {
-      var player = Player(attrs())
-      player.createGame()
-      player.on('lose', function () {
-        assert(player.lost === true)
-        done()
-      })
-      player.lose()
-    })
-  })
-
-  describe('Player#stopBoard', function () {
-    it('clears the player board timeout', function (done) {
-      var player = Player(attrs())
-      player.createGame()
-      player.game.getQueue()
-      player.start()
-      assert(player.board.timeout !== null)
-      player.on('board:stop', function () {
-        assert(player.board.timeout === null)
-        done()
-      })
-      player.stopBoard()
     })
   })
 
@@ -203,22 +170,19 @@ describe('Player', function () {
     it('emits start event', function (done) {
       var player = Player(attrs())
       player.createGame()
-      player.game.getQueue()
-      assert(player.interval !== null)
       player.on('start', function () {
         assert(true)
         done()
       })
       player.start()
     })
-    it('emits client event on socket', function (done) {
+    it('emits board:start on socket', function (done) {
       var player = Player(attrs())
-      player.socket.on('client', function (json) {
-        assert(json.id === player.id)
+      player.socket.on('board:start', function () {
+        assert(true)
         done()
       })
       player.createGame()
-      player.game.getQueue()
       player.start()
     })
   })

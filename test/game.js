@@ -1,5 +1,6 @@
 /*global describe, it*/
 var Emitter = require('component-emitter')
+var uid = require('uid')
 var assert = require('assert')
 var Player = require('../lib/player')
 var Game = require('../lib/game')
@@ -24,23 +25,25 @@ socket.disconnect = function () {
 }
 
 function getPlayer () {
-  return Player({socket: socket})
+  return Player({
+    nick: uid(),
+    socket: socket
+  })
 }
 
 describe('Game', function () {
   describe('Game()', function () {
     it('returns a new instance', function () {
-      var player = getPlayer()
       assert(Game() !== Game())
     })
   })
   describe('Game#newPlayer', function () {
-    it('attaches game to player object', function () {
+    it('adds a player to this game', function () {
       var player1 = getPlayer()
       var game = Game()
       assert(player1.game === null)
       game.newPlayer(player1)
-      assert(player1.game === game)
+      assert(game.players[0] === player1)
     })
   })
   describe('Game#removePlayer', function () {
@@ -52,9 +55,49 @@ describe('Game', function () {
       game.newPlayer(player1)
       game.newPlayer(player2)
       assert(game.players.length === 2)
-      player1.quitGame()
-      player2.quitGame()
+      game.removePlayer(player1)
+      game.removePlayer(player2)
       assert(game.players.length === 0)
+    })
+  })
+  describe('Game#deactivatePlayer', function () {
+    it('removes player from list of active players', function () {
+      var player = getPlayer()
+      var game = Game()
+
+      game.on('start', function () {
+        assert(game.activePlayers.length === 1)
+        game.deactivatePlayer(player.id)
+        assert(game.activePlayers.length === 0)
+      })
+
+      game.newPlayer(player)
+      game.start()
+    })
+  })
+  describe('Game#checkForWinner', function () {
+    it('sets winnerName when winner is found', function () {
+      var player1 = getPlayer()
+      var game = Game()
+      game.newPlayer(player1)
+      game.setActivePlayers()
+      game.checkForWinner()
+      assert(game.winnerName = player1.nick)
+    })
+  })
+  describe('Game#bindPlayer', function () {
+    it('inits listener for lose event', function () {
+      var player1 = getPlayer()
+      var player2 = getPlayer()
+      var game = Game()
+      game.players.push(player1)
+      game.players.push(player2)
+      game.setActivePlayers()
+      assert(game.activePlayers.length === 2)
+      game.bindPlayer(player1)
+      player1.emit('lose')
+      assert(game.activePlayers.length === 1)
+      assert(game.winnerName === player2.nick)
     })
   })
 })

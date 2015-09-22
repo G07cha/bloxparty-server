@@ -47,7 +47,6 @@ describe('App', function () {
       socket.on('stats', function (stats) {
         assert(stats.games)
         assert(stats.players)
-        assert(stats.players.length === 1)
         server.destroy()
         socket.disconnect()
         done()
