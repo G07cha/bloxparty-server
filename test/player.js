@@ -81,7 +81,6 @@ describe('Player', function () {
       var player = Player(attrs())
 
       player.on('quit', function () {
-        console.log('what')
         assert(player.game === null)
         done()
       })
