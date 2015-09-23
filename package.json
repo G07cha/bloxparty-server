@@ -19,6 +19,8 @@
   },
   "devDependencies": {
     "component-clone": "^0.2.2",
+    "dependency-check": "^2.5.1",
+    "fixpack": "^2.2.0",
     "mocha": "^2.2.5",
     "socket.io-client": "^1.3.6",
     "standard": "^5.1.0"

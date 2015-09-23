@@ -1,4 +1,4 @@
-/*global describe, it, beforeEach, afterEach*/
+/*global describe, it, beforeEach*/
 var io = require('socket.io-client')
 var assert = require('assert')
 var Server = require('../lib/server')

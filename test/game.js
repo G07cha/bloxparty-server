@@ -26,7 +26,7 @@ socket.disconnect = function () {
 
 function getPlayer () {
   return Player({
-    nick: cuid(),
+    nick: uid(),
     socket: socket
   })
 }

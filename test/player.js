@@ -1,4 +1,4 @@
-/*global describe, it*/
+/*global describe, it, afterEach*/
 var Emitter = require('component-emitter')
 var clone = require('component-clone')
 var assert = require('assert')
@@ -22,7 +22,7 @@ socket.disconnect = function () {
 }
 
 function attrs () {
-  var s =  clone(socket)
+  var s = clone(socket)
   return {
     socket: s,
     nick: 'foo'
