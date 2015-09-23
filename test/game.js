@@ -1,6 +1,6 @@
 /*global describe, it*/
 var Emitter = require('component-emitter')
-var uid = require('uid')
+var uid = require('cuid')
 var assert = require('assert')
 var Player = require('../lib/player')
 var Game = require('../lib/game')
@@ -26,7 +26,7 @@ socket.disconnect = function () {
 
 function getPlayer () {
   return Player({
-    nick: uid(),
+    nick: cuid(),
     socket: socket
   })
 }
