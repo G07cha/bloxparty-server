@@ -1,0 +1,82 @@
+:root {
+  --space-small-px: 5px;
+  --space-medium-px: 10px;
+  --space-large-px: 20px;
+  --space-page-padding: 20px;
+
+  --border-radius: 3px;
+
+  --color-error-red: rgb(239, 72, 54);
+  --color-black: rgb(10, 10, 15);
+  --color-gray: rgb(40, 45, 45);
+  --color-darker-blue: rgb(6, 21, 28);
+  --color-dark-blue: rgb(0, 32, 43);
+  --color-medium-blue: rgb(9, 122, 160);
+  --color-light-blue: rgb(150, 255, 255);
+  --color-royal-blue: rgb(34, 167, 240);
+  --color-dark-gray: rgb(30, 35, 35);
+  --color-medium-gray: rgb(190, 190, 190);
+  --color-dark-gray-alt: color(var(--color-dark-gray) tint(5%));
+  --color-silver: rgb(245, 245, 245);
+  --color-orange: rgb(255, 187, 0);
+}
+
+@font-face {
+  font-family: 'PT Sans';
+  src: url('../fonts/PT_Sans/PT_Sans-Web-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@import 'suitcss/base';
+
+html {
+  height: 100%;
+}
+
+body {
+  background-color: var(--color-darker-blue);
+  color: var(--color-silver);
+  font-family: 'PT Sans', sans-serif;
+  font-size: 14px;
+  margin: 20px;
+  height: 100%;
+}
+
+.Content {
+  margin: 0 auto;
+  width: 100%;
+}
+
+.Logs,
+.Logs-table {
+  background-color: var(--color-dark-gray);
+  color: var(--color-medium-gray);
+  width: 100%;
+}
+
+.Logs-tableHead th {
+  color: var(--color-orange);
+  font-weight: 400;
+  text-align: left;
+}
+
+.Logs-tableHead th,
+.Logs-tableCell {
+  padding: var(--space-small-px);
+}
+
+.Logs-tableHead th:first-child,
+.Logs-tableCell:first-child {
+  width: 175px;
+}
+
+.Logs-tableHead th:nth-child(2),
+.Logs-tableCell:nth-child(2) {
+  width: 100px;
+}
+
+.Logs-tableHead th:nth-child(3),
+.Logs-tableCell:nth-child(3) {
+  width: 150px;
+}
