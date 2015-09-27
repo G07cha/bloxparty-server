@@ -4,3 +4,4 @@ build
 .travis/deploy_key
 client/components
 log/*
+npm-debug.log
