@@ -2,4 +2,5 @@
 node_modules
 build
 .travis/deploy_key
-.client/components
+client/components
+log/*
