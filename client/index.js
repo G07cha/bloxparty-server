@@ -42,7 +42,7 @@ main.render = function render({props}) {
     logEls.push(el)
   })
 
-  return dom('div', {class: 'Logs'}, [
+  let logEl = dom('div', {class: 'Logs'}, [
     dom('table', {class: 'Logs-table'}, [
       dom('thead', {class: 'Logs-tableHead'}, [
         dom('tr', {}, [
@@ -54,6 +54,11 @@ main.render = function render({props}) {
       ]),
       dom('tbody', {class: 'Logs-tableBody'}, logEls)
     ])
+  ])
+
+  return dom('div', {}, [
+    dom('h1', {class: 'Title'}, 'Blox Party Server'),
+    logEl
   ])
 }
 

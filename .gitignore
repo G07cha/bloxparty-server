@@ -5,3 +5,5 @@ build
 client/components
 log/*
 npm-debug.log
+public/index.css
+public/index.js

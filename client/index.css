@@ -48,6 +48,10 @@ body {
   width: 100%;
 }
 
+.Title {
+  margin-bottom: var(--space-large-px);
+}
+
 .Logs,
 .Logs-table {
   background-color: var(--color-dark-gray);
