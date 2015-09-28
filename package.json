@@ -57,7 +57,7 @@
     "check": "npm run lint && dependency-check ./package.json && fixpack",
     "lint": "standard lib/*.js test/*.js",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post",
-    "start": "",
+    "start": "npm run start",
     "test": "mocha test/index.js",
     "build-client": "node build.js",
     "watch": "chokidar './client/**/*.js' -c 'npm run build-client' & chokidar './client/**/*.css' -c 'npm run build-client'"
