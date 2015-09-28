@@ -1,1 +1,1 @@
-web: npm run start
+web: WEBUI=true node index.js
