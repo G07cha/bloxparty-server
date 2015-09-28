@@ -5,7 +5,7 @@ import moment from 'moment'
 
 let port = process.env.PORT || 3001
 
-var socket = io('localhost:' + port)
+var socket = io()
 
 function wsPlugin () {
   return function (app) {
