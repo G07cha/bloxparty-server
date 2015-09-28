@@ -61,7 +61,7 @@
     "check": "npm run lint && dependency-check ./package.json && fixpack",
     "lint": "standard lib/*.js test/*.js",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post",
-    "start": "./bin/bloxparty-server -w",
+    "start": "WEB=true node index.js",
     "test": "mocha test/index.js",
     "watch": "chokidar './client/**/*.js' -c 'npm run build-client' & chokidar './client/**/*.css' -c 'npm run build-client'"
   }
