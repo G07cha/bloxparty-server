@@ -4,7 +4,7 @@
 
 A server for hosting [Blox Party](https://github.com/kvnneff/bloxparty) games.
 
-Working builds are continuously deployed to a public Blox Party server: `bloxparty.kvnneff.me`
+Working builds are continuously deployed to a public Blox Party server: [http://bloxparty-server.kvnneff.me](http://bloxparty-server.kvnneff.me)
 
 ## Installation
 
