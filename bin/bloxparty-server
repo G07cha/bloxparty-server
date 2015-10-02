@@ -6,7 +6,6 @@ var pkg = require('../package.json')
 program
   .version(pkg.version)
   .option('-p, --port [PORT]', 'Port to listen on')
-  .option('-w, --webui', 'Create web interface')
   .parse(process.argv)
 
 var server = Server(program)

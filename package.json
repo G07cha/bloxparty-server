@@ -1,7 +1,7 @@
 {
   "name": "bloxparty-server",
   "description": "Blox Party game server",
-  "version": "1.0.5",
+  "version": "1.1.0",
   "author": "Kevin Neff <kvnneff@gmail.com>",
   "bin": "./bin/bloxparty-server",
   "bugs": {
@@ -9,37 +9,32 @@
   },
   "dependencies": {
     "array": "^0.4.3",
-    "babelify": "^6.3.0",
     "bloxparty-board": "kvnneff/bloxparty-board#master",
     "bole": "^2.0.0",
-    "browserify": "^11.2.0",
     "commander": "^2.8.1",
     "component-clone": "^0.2.2",
     "component-emitter": "^1.2.0",
     "cuid": "^1.2.5",
     "deku": "^0.5.6",
-    "duo": "^0.15.3",
-    "duo-myth": "^0.2.0",
-    "envify": "^3.4.0",
-    "lru-cache": "^2.7.0",
     "mkdirp": "^0.5.1",
     "moment": "^2.10.6",
-    "node-lru": "0.0.2",
     "random-name": "^0.1.0",
-    "slice-file": "^1.0.0",
     "socket.io": "^1.3.6",
-    "socket.io-client": "^1.3.7",
     "touch": "^1.0.0",
     "virtual-element": "^1.2.0",
     "ws": "^0.8.0"
   },
   "devDependencies": {
+    "babelify": "^6.3.0",
+    "browserify": "^11.2.0",
     "chokidar-cli": "^1.0.1",
     "component-clone": "^0.2.2",
     "dependency-check": "^2.5.1",
+    "duo": "^0.15.3",
+    "duo-myth": "^0.2.0",
     "fixpack": "^2.2.0",
     "mocha": "^2.2.5",
-    "socket.io-client": "^1.3.6",
+    "socket.io-client": "^1.3.7",
     "standard": "^5.1.0"
   },
   "engines": {
@@ -58,11 +53,13 @@
     "url": "https://github.com/kvnneff/bloxparty-server.git"
   },
   "scripts": {
-    "build-client": "node build.js",
+    "build-client": "npm run build-js & npm run build-css",
+    "build-css": "duo --use duo-myth lib/index.css",
+    "build-js": "browserify lib/index.js -t [babelify --ignore socket.io-client] --outfile build/lib/index.js",
     "check": "npm run lint && dependency-check ./package.json && fixpack",
     "lint": "standard lib/*.js test/*.js",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post",
-    "start": "WEBUI=true node index.js",
+    "start": "node index.js",
     "test": "mocha test/index.js",
     "watch": "chokidar './client/**/*.js' -c 'npm run build-client' & chokidar './client/**/*.css' -c 'npm run build-client'"
   }

@@ -20,7 +20,6 @@ Options:
   -h, --help         output usage information
   -V, --version      output the version number
   -p, --port [PORT]  Port to listen on
-  -w, --web          Create public web interface for viewing server stats and logs
 ```
 
 ## license
