@@ -20,6 +20,7 @@
     "moment": "^2.10.6",
     "random-name": "^0.1.0",
     "socket.io": "^1.3.6",
+    "suitcss-base": "^0.8.0",
     "touch": "^1.0.0",
     "virtual-element": "^1.2.0",
     "ws": "^0.8.0"
@@ -30,10 +31,11 @@
     "chokidar-cli": "^1.0.1",
     "component-clone": "^0.2.2",
     "dependency-check": "^2.5.1",
-    "duo": "^0.15.3",
-    "duo-myth": "^0.2.0",
     "fixpack": "^2.2.0",
     "mocha": "^2.2.5",
+    "postcss-cli": "^2.2.0",
+    "postcss-cssnext": "^2.1.0",
+    "postcss-import": "^7.0.0",
     "socket.io-client": "^1.3.7",
     "standard": "^5.1.0"
   },
@@ -53,12 +55,11 @@
     "url": "https://github.com/kvnneff/bloxparty-server.git"
   },
   "scripts": {
-    "build-client": "npm run build-js & npm run build-css",
-    "build-css": "duo --use duo-myth lib/index.css",
-    "build-js": "browserify lib/index.js -t [babelify --ignore socket.io-client] --outfile build/lib/index.js",
+    "build": "npm run build-css & npm run build-js",
+    "build-css": "postcss -u postcss-cssnext -u postcss-import -o public/index.css client/index.css ",
+    "build-js": "browserify client/index.js -t [babelify --ignore socket.io-client] --outfile public/index.js",
     "check": "npm run lint && dependency-check ./package.json && fixpack",
     "lint": "standard lib/*.js test/*.js",
-    "semantic-release": "semantic-release pre && npm publish && semantic-release post",
     "start": "node index.js",
     "test": "mocha test/index.js",
     "watch": "chokidar './client/**/*.js' -c 'npm run build-client' & chokidar './client/**/*.css' -c 'npm run build-client'"

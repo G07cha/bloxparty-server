@@ -28,7 +28,7 @@
   font-style: normal;
 }
 
-@import 'suitcss/base';
+@import 'suitcss-base';
 
 html {
   height: 100%;
