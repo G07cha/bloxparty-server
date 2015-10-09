@@ -32,7 +32,6 @@
     "component-clone": "^0.2.2",
     "dependency-check": "^2.5.1",
     "fixpack": "^2.2.0",
-    "kvnneff/postcss-copy-assets": "*",
     "mocha": "^2.2.5",
     "postcss-cli": "^2.2.0",
     "postcss-copy-assets": "kvnneff/postcss-copy-assets",
