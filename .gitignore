@@ -6,3 +6,4 @@ log/*
 npm-debug.log
 public/index.css
 public/index.js
+public/fonts
