@@ -1,6 +1,6 @@
 /*global describe, it*/
 var assert = require('assert')
-var queue = require('../lib/queue')
+var queue = require('../../server/queue')
 
 describe('Queue', function () {
   it('returns a new array of shapes', function () {

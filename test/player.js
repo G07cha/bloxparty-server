@@ -2,9 +2,9 @@
 var Emitter = require('component-emitter')
 var clone = require('component-clone')
 var assert = require('assert')
-var Player = require('../lib/player')
-var Games = require('../lib/games')
-var Players = require('../lib/players')
+var Player = require('../../server/player')
+var Games = require('../../server/games')
+var Players = require('../../server/players')
 var socket = {}
 
 Emitter(socket)

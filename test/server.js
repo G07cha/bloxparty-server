@@ -1,7 +1,7 @@
 /*global describe, it, beforeEach*/
 var io = require('socket.io-client')
 var assert = require('assert')
-var Server = require('../lib/server')
+var Server = require('../../server/server')
 var server
 var socket
 

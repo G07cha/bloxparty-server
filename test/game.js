@@ -2,8 +2,8 @@
 var Emitter = require('component-emitter')
 var uid = require('cuid')
 var assert = require('assert')
-var Player = require('../lib/player')
-var Game = require('../lib/game')
+var Player = require('../../server/player')
+var Game = require('../../server/game')
 var socket = {}
 
 Emitter(socket)
